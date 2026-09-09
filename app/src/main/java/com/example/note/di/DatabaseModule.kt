@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.example.note.data.data_source.NoteDb
+import com.example.note.data.data_source.repository.NoteRepositoryImpl
+import com.example.note.domain.repository.NoteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +29,12 @@ object DatabaseModule {
     }
 
     @Provides
+    @Singleton
     fun provideNoteDao(db: NoteDb) = db.noteDao()
+
+    @Provides
+    @Singleton
+    fun provideNoteRepository(db: NoteDb): NoteRepository{
+        return NoteRepositoryImpl(db.noteDao())
+    }
 }
