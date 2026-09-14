@@ -14,7 +14,8 @@ import com.example.note.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(onNavigationIconClick:  () -> Unit){
+fun TopAppBar(onNavigationIconClick:  () -> Unit,
+              onSaveNoteClick: () -> Unit){
     TopAppBar(
         title = {
         },
@@ -32,7 +33,7 @@ fun TopAppBar(onNavigationIconClick:  () -> Unit){
         },
         actions = {
             IconButton(
-                onClick = {}){
+                onClick = {onSaveNoteClick}){
                     Image(
                         painter = painterResource(id = R.drawable.check),
                         contentDescription = "Save"
@@ -46,5 +47,6 @@ fun TopAppBar(onNavigationIconClick:  () -> Unit){
 @Composable
 @Preview(showBackground = true)
 fun TopAppBarPreview() {
-    TopAppBar(onNavigationIconClick = {})
+    TopAppBar(onNavigationIconClick = {},
+        onSaveNoteClick = {})
 }
