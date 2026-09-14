@@ -1,5 +1,3 @@
-@file:Suppress("PreviewAnnotationInFunctionWithParameters")
-
 package com.example.note.presentation.components
 
 import androidx.compose.foundation.Image
@@ -32,12 +30,21 @@ fun TopAppBar(onNavigationIconClick:  () -> Unit){
                 )
             }
         },
+        actions = {
+            IconButton(
+                onClick = {}){
+                    Image(
+                        painter = painterResource(id = R.drawable.check),
+                        contentDescription = "Save"
+                    )
+                }
+        }
 
     )
 }
 
 @Composable
 @Preview(showBackground = true)
-fun TopAppBarPreview(onNavigationIconClick:  () -> Unit){
-    TopAppBar(onNavigationIconClick = onNavigationIconClick)
+fun TopAppBarPreview() {
+    TopAppBar(onNavigationIconClick = {})
 }
