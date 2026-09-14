@@ -33,7 +33,7 @@ fun TopAppBar(onNavigationIconClick:  () -> Unit,
         },
         actions = {
             IconButton(
-                onClick = {onSaveNoteClick}){
+                onClick = onSaveNoteClick){
                     Image(
                         painter = painterResource(id = R.drawable.check),
                         contentDescription = "Save"
