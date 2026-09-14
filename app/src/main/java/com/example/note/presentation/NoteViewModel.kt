@@ -32,6 +32,13 @@ class NoteViewModel@Inject constructor
                         noteUseCases.upsertNotes(event.note)
                     }
                 }
+                is NoteEvents.ToggleNoteStatus -> {
+                    viewModelScope.launch {
+                        noteUseCases.upsertNotes(
+                            event.note.copy(isCompleted = !event.note.isCompleted)
+                        )
+                    }
+                }
             }
         }
 
