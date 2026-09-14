@@ -55,7 +55,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     //Room
-    val room_version = "2.8.4"
+    val room_version = "2.8.5"
     implementation("androidx.room:room-ktx:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
 
