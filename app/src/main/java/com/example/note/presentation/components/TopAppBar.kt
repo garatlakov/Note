@@ -14,7 +14,7 @@ import com.example.note.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(onNavigationIconClick:  () -> Unit,
+fun NoteTopAppBar(onNavigationIconClick:  () -> Unit,
               onSaveNoteClick: () -> Unit){
     TopAppBar(
         title = {
@@ -46,7 +46,7 @@ fun TopAppBar(onNavigationIconClick:  () -> Unit,
 
 @Composable
 @Preview(showBackground = true)
-fun TopAppBarPreview() {
-    TopAppBar(onNavigationIconClick = {},
+fun NoteTopAppBarPreview() {
+    NoteTopAppBar(onNavigationIconClick = {},
         onSaveNoteClick = {})
 }
