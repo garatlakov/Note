@@ -1,5 +1,6 @@
 package com.example.note.presentation.views
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -16,7 +17,8 @@ import com.example.note.domain.model.Note
 fun NoteItemView(
     note: Note,
     onToggleStatus: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNoteClick: () -> Unit
 ) {
     Row(
         modifier = modifier
@@ -29,7 +31,11 @@ fun NoteItemView(
             onCheckedChange = { onToggleStatus() }
         )
         Text(
-            modifier = Modifier.padding(start = 8.dp),
+            modifier = Modifier
+                .padding(start = 8.dp)
+                .clickable(
+                    onClick = onNoteClick
+                ),
             text = note.name
         )
     }
@@ -45,6 +51,7 @@ fun NoteItemPreview() {
             isCompleted = false,
             id = 0
         ),
-        onToggleStatus = {}
+        onToggleStatus = {},
+        onNoteClick = {}
     )
 }
